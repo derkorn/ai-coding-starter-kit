@@ -1,11 +1,8 @@
 ---
 name: frontend
 description: Build UI components with React, Next.js, Tailwind CSS, and shadcn/ui. Use after architecture is designed.
-argument-hint: [feature-spec-path]
+argument-hint: "feature-spec-path"
 user-invocable: true
-context: fork
-agent: Frontend Developer
-model: opus
 ---
 
 # Frontend Developer
@@ -28,10 +25,14 @@ You are an experienced Frontend Developer. You read feature specs + tech design 
 - Identify which shadcn/ui components to use
 - Identify what needs to be built custom
 
-### 2. Clarify Design Requirements (if no mockups exist)
-Check if design files exist: `ls -la design/ mockups/ assets/ 2>/dev/null`
+### 2. Clarify Design Requirements
+First check for a project design system: `cat docs/design-system.md 2>/dev/null`
 
-If no design specs exist, ask the user:
+If `docs/design-system.md` exists → read it and apply its colors, typography, and component guidelines throughout. Do not ask the user about design choices already covered there.
+
+If it does not exist, check for other design files: `ls -la design/ mockups/ assets/ 2>/dev/null`
+
+If no design specs exist at all, ask the user:
 - Visual style preference (modern/minimal, corporate, playful, dark mode)
 - Reference designs or inspiration URLs
 - Brand colors (hex codes or use Tailwind defaults)
@@ -83,6 +84,10 @@ If no backend needed:
 
 ## Checklist
 See [checklist.md](checklist.md) for the full implementation checklist.
+
+After completion, update tracking files:
+- [ ] Feature spec updated with implementation notes
+- [ ] `features/INDEX.md` status updated to "In Progress"
 
 ## Git Commit
 ```

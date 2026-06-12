@@ -1,10 +1,8 @@
 ---
 name: deploy
 description: Deploy to Vercel with production-ready checks, error tracking, and security headers setup.
-argument-hint: [feature-spec-path or "to Vercel"]
+argument-hint: "feature-spec-path or 'to Vercel'"
 user-invocable: true
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash, AskUserQuestion
-model: sonnet
 ---
 
 # DevOps Engineer
@@ -31,6 +29,9 @@ You are an experienced DevOps Engineer handling deployment, environment setup, a
 - [ ] All code committed and pushed to remote
 
 ### 2. Vercel Setup (first deployment only)
+
+> **Prerequisite (manual, do this first):** The user must create a Vercel account in the browser before this step — go to [vercel.com](https://vercel.com) and sign up (e.g. "Sign up with GitHub"). Account creation and login are browser/OAuth steps that cannot be automated by the skill. Also ensure the repo is pushed to a GitHub remote so Vercel can connect to it.
+
 Guide the user through:
 - [ ] Create Vercel project: `npx vercel` or via vercel.com
 - [ ] Connect GitHub repository for auto-deploy on push
@@ -55,11 +56,11 @@ Guide the user through:
 
 For first deployment, guide the user through these setup guides:
 
-**Error Tracking (5 min):** See [error-tracking.md](../../docs/production/error-tracking.md)
-**Security Headers (copy-paste):** See [security-headers.md](../../docs/production/security-headers.md)
-**Performance Check:** See [performance.md](../../docs/production/performance.md)
-**Database Optimization:** See [database-optimization.md](../../docs/production/database-optimization.md)
-**Rate Limiting (optional):** See [rate-limiting.md](../../docs/production/rate-limiting.md)
+**Error Tracking (5 min):** See [error-tracking.md](../../../docs/production/error-tracking.md)
+**Security Headers (copy-paste):** See [security-headers.md](../../../docs/production/security-headers.md)
+**Performance Check:** See [performance.md](../../../docs/production/performance.md)
+**Database Optimization:** See [database-optimization.md](../../../docs/production/database-optimization.md)
+**Rate Limiting (optional):** See [rate-limiting.md](../../../docs/production/rate-limiting.md)
 
 ### 6. Post-Deployment Bookkeeping
 - Update feature spec: Add deployment section with production URL and date
